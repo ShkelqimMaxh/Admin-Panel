@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Task Details
+    </a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Client
+  </div>
+  <div class="card-body">
+    <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)">
+      <div class="form-group">
+        <label for="title">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          id="title"
+          #taskTitle="ngModel"
+          [ngClass]="{'is-invalid':taskTitle.errors && taskTitle.touched}"
+          [(ngModel)]="task.title"
+          minlength="2"
+          required
+        >
+
+        <div [hidden]="!taskTitle.errors?.required" class="invalid-feedback">
+          First name required
+        </div>
+
+        <div [hidden]="!taskTitle.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="text">Text</label>
+        <input
+          type="text"
+          id="text"
+          class="form-control"
+          name="text"
+          #taskText="ngModel"
+          [ngClass]="{'is-invalid':taskText.errors && taskText.touched}"
+          [(ngModel)]="task.text"
+          required
+        >
+
+        <div [hidden]="!taskText.errors?.required" class="invalid-feedback">
+          Title is required
+        </div>
+
+        <div [hidden]="!taskText.errors?.pattern" class="invalid-feedback">
+          Text is not valid
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="hours">Hours</label>
+        <input
+          type="number"
+          id="hours"
+          class="form-control"
+          [(ngModel)]="task.hours"
+          name="hours"
+          #clientBalance = "ngModel"
+        >
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-8">
+    <a routerLink="/" class="btn btn-link">
+      <i class="fas fa-arrow-alt-circle-left"></i> Back to Tasks List
+    </a>
+  </div>
+  <div class="col-md-4">
+    <div class="btn-group float-right">
+      <a routerLink="/tasks/edit/{{ task.id }}" class="btn btn-outline-primary">
+        <i class="far fa-edit"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<hr>
+<div *ngIf="task" class="card">
+  <div class="card-header"><h4 class="d-inline blockquote">{{ task.title }}</h4> <button class="float-right btn btn-outline-danger" (click)="onDeleteClick()">Delete</button></div>
+  <div class="card-body">
+    <div class="row">
+      <div class="cold-md-8 col-sm-6">
+        <h5>Task description: {{ task.text }}</h5>
+      </div>
+    </div>
+    <hr>
+
+    <ul class="list-group">
+      <li class="list-group-item">
+            <span>Hours: {{ task.hours }}</span>
+            <button class="btn btn-light float-right"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <i class="fas fa-plus"></i>
+            </button>
+      </li>
+      <li class="list-group-item">
+        <div class="collapse" id="collapseExample">
+
+          <form (submit)="updateHours(id)" >
+            <div class="form-group row">
+              <input type="number" min="1" class="form-control offset-xs-1 col-md-2" [(ngModel)]="task.hours" name="hours"  placeholder="Add hours">
+              <button type="submit" class="btn btn-primary col-md-2 offset-md-2 ">Update</button>
+            </div>
+          </form>
+
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>

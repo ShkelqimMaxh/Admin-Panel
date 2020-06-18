@@ -1,0 +1,28 @@
+<div class=" row bg-white" >
+  <div class="col-md-8 mt-5 photoDiv">
+    <p class="h2" style="font-family: 'Comic Sans MS'">Register</p>
+    <p>Register to our panel</p>
+    <p class="text-muted">This is just a practice project</p>
+  </div>
+
+  <div class="col-md-4 rounded bg-white">
+    <form class="row" (submit)="onSubmit()">
+      <div class="input-group mb-3 ml-3 mr-3 float-right" >
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+        </div>
+        <input type="text" class="form-control bg-light" name="email" [(ngModel)]="email" placeholder="Email" >
+      </div>
+
+      <div class="input-group mb-3 ml-3 mr-3 float-right" >
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="loginPw"><i class="fas fa-key"></i></span>
+        </div>
+        <input type="password" class="form-control bg-light" name="password" [(ngModel)]="password" placeholder="Password" >
+      </div>
+      <input type="submit" class="btn btn-primary col-md-11 ml-3 mb-3" value="Register" >
+    </form>
+    <p class="text-primary">Already have an account ? </p>
+    <a class="btn  btn-success mb-2" routerLink="/login">Login</a>
+  </div>
+</div>
